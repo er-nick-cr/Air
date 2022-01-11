@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Air Quality</string>
+    <string name="city_name">Название города</string>
+    <string name="_100">100</string>
+    <string name="city">Krasnoyarsk</string>
+    <string name="temperature">Температура: 10 ℃</string>
+    <string name="wind">Ветер: 6 м/с</string>
+    <string name="uvi">УФ индекс: 1</string>
+    <string name="ozone">Озоновый слой: 1</string>
+</resources>
