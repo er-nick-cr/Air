@@ -12,6 +12,9 @@ android {
         versionCode 1
         versionName "1.0"
 
+        buildConfigField 'String', 'API_TOKEN', '"2f99a98ceaf7a87f0cb09ca411e1fa02608daa40"'
+        buildConfigField 'String', 'BASE_URL', '"https://api.waqi.info/feed/"'
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 

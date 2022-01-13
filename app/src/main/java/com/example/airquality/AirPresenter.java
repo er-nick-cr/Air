@@ -1,9 +1,13 @@
 package com.example.airquality;
 
 import android.annotation.SuppressLint;
-import android.widget.TextView;
+import android.content.Context;
+
 
 import androidx.annotation.NonNull;
+
+import com.example.airquality.model.NetworkService;
+import com.example.airquality.model.entity.Post;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -11,35 +15,24 @@ import retrofit2.Response;
 
 public class AirPresenter {
 
-    private AirView airView;
-    PhraseModel phraseModel = new PhraseModel();
+    private final AirView airView;
+    private final AirModel model = new AirModel();
+    ;
+    private final PhraseModel phraseModel;
 
 
-    public AirPresenter(AirView airView) {
+    public AirPresenter(AirView airView, Context context) {
         this.airView = airView;
+        this.phraseModel = new PhraseModel(context);
     }
-
-    private void checkPollution(int pollutionIndex) {
-        if(pollutionIndex <= 80) {
-            airView.makeGoodBackground(phraseModel.getRandomGood());
-        } else if (pollutionIndex > 81 && pollutionIndex <= 170) {
-            airView.makeMiddleBackground(phraseModel.getRandomMiddle());
-        } else if (pollutionIndex > 171) {
-            airView.makeBadBackground(phraseModel.getRandomBad());
-        }
-    }
-
-
 
     public void onAppOpen() {
-        AirModel.NetworkService.getInstance().getJSONApi().getGeolocalizedPost().enqueue(new Callback<AirModel.Post>() {
+        model.getGeolocalizedPost().enqueue(new Callback<Post>() {
             @SuppressLint("SetTextI18n")
             @Override
-            public void onResponse(@NonNull Call<AirModel.Post> call, @NonNull Response<AirModel.Post> response) {
-                AirModel.Post post = (AirModel.Post) response.body();
+            public void onResponse(@NonNull Call<Post> call, @NonNull Response<Post> response) {
+                Post post = (Post) response.body();
                 assert post != null;
-
-
 
                 int airQualityNumber = post.getData().getAqi();
                 String city = String.valueOf(post.getData().getCity().getName());
@@ -52,20 +45,20 @@ public class AirPresenter {
             }
 
             @Override
-            public void onFailure(@NonNull Call<AirModel.Post> call, @NonNull Throwable t) {
+            public void onFailure(@NonNull Call<Post> call, @NonNull Throwable t) {
                 t.printStackTrace();
             }
         });
     }
 
     public void onSearchButtonClick(String searchValue) {
-        if(searchValue.trim().equals("")) {
+        if (searchValue.trim().equals("")) {
             airView.showEmptySearchFieldError();
         } else {
-            AirModel.NetworkService.getInstance().getJSONApi().getPostWithCityNAme(searchValue).enqueue(new Callback<AirModel.Post>() {
+            model.getPostWithCityName(searchValue).enqueue(new Callback<Post>() {
                 @Override
-                public void onResponse(Call<AirModel.Post> call, Response<AirModel.Post> response) {
-                    AirModel.Post post = (AirModel.Post) response.body();
+                public void onResponse(Call<Post> call, Response<Post> response) {
+                    Post post = (Post) response.body();
                     assert post != null;
 
                     int airQualityNumber = post.getData().getAqi();
@@ -79,13 +72,23 @@ public class AirPresenter {
                 }
 
                 @Override
-                public void onFailure(@NonNull Call<AirModel.Post> call, @NonNull Throwable t) {
+                public void onFailure(@NonNull Call<Post> call, @NonNull Throwable t) {
                     t.printStackTrace();
+                    airView.showUpdateDataError();
                 }
             });
         }
-        }
+    }
 
+    private void checkPollution(int pollutionIndex) {
+        if (pollutionIndex <= 80) {
+            airView.makeGoodBackground(phraseModel.getRandomGood());
+        } else if (pollutionIndex > 81 && pollutionIndex <= 170) {
+            airView.makeMiddleBackground(phraseModel.getRandomMiddle());
+        } else if (pollutionIndex > 171) {
+            airView.makeBadBackground(phraseModel.getRandomBad());
+        }
+    }
 
 
 }

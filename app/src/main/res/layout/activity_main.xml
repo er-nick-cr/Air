@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/main"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tool="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@drawable/background_gradient_good">
+    android:background="@drawable/background_gradient_good"
+    tools:context=".MainActivity">
 
     <LinearLayout
         android:id="@+id/search_container"
@@ -15,19 +16,18 @@
         android:layout_marginTop="40dp"
         android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/edit_city"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="50dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:backgroundTint="@color/white"
-        android:hint="@string/city_name"
-        android:inputType="text"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-         />
+        <EditText
+            android:id="@+id/edit_city"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/white"
+            android:hint="@string/city_name"
+            android:inputType="text"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
 
 
         <ImageButton
@@ -51,9 +51,9 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/rounded_corner"
         android:gravity="center"
-        android:text="@string/_100"
-        android:textSize="44sp"
-        android:textColor="@color/white" />
+        tools:text="@string/_100"
+        android:textColor="@color/white"
+        android:textSize="44sp" />
 
     <TextView
         android:id="@+id/air_description"
@@ -63,9 +63,9 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
-        android:textSize="18sp"
-        android:text="Hello World!"
-        android:textColor="@color/white" />
+        tools:text="Hello World!"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/city"
@@ -73,26 +73,26 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/air_quality_number"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
-        android:textSize="24sp"
-        android:text="@string/city"
-        android:textColor="@color/white" />
+        android:layout_marginTop="10dp"
+        tools:text="@string/city"
+        android:textColor="@color/white"
+        android:textSize="24sp" />
 
     <RelativeLayout
         android:id="@+id/weather_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
         android:layout_below="@id/city"
-        android:layout_marginTop="5dp">
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp">
 
         <TextView
             android:id="@+id/uvi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/uvi"
+            tools:text="@string/uvi"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
@@ -100,10 +100,10 @@
             android:id="@+id/ozone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/ozone"
-            android:textSize="16sp"
-            android:textColor="@color/white"
             android:layout_alignParentEnd="true"
+            tools:text="@string/ozone"
+            android:textColor="@color/white"
+            android:textSize="16sp"
             tools:ignore="RelativeOverlap" />
 
 
@@ -113,34 +113,35 @@
         android:id="@+id/clouds"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_below="@id/weather_container">
+        android:layout_below="@id/weather_container"
+        android:layout_marginTop="40dp">
 
-    <ImageView
-        android:id="@+id/cloud1"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
-        android:src="@mipmap/cloud"/>
+        <ImageView
+            android:id="@+id/cloud1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@mipmap/cloud" />
 
         <ImageView
             android:id="@+id/cloud2"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:layout_alignParentEnd="true"
             android:layout_marginTop="50dp"
             android:layout_marginEnd="20dp"
-            android:src="@mipmap/cloud"
-            android:layout_alignParentEnd="true"/>
+            android:src="@mipmap/cloud" />
+
         <ImageView
             android:id="@+id/cloud3"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginTop="100dp"
             android:layout_marginStart="40dp"
-            android:src="@mipmap/cloud"/>
+            android:layout_marginTop="100dp"
+            android:src="@mipmap/cloud" />
 
-</RelativeLayout>
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/town"
@@ -152,28 +153,24 @@
         <ImageView
             android:layout_width="130dp"
             android:layout_height="130dp"
-            android:src="@mipmap/skyline"
-            android:layout_marginStart="10dp"
             android:layout_alignParentBottom="true"
-            />
+            android:layout_marginStart="10dp"
+            android:src="@mipmap/skyline" />
 
         <ImageView
             android:layout_width="130dp"
             android:layout_height="130dp"
-            android:src="@mipmap/building_and_tree"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            />
+            android:src="@mipmap/building_and_tree" />
 
         <ImageView
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="10dp"
-            android:src="@mipmap/buildings"
             android:layout_alignParentBottom="true"
-            />
-
+            android:layout_marginEnd="10dp"
+            android:src="@mipmap/buildings" />
 
 
     </RelativeLayout>

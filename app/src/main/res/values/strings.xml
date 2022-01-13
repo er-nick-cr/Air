@@ -7,4 +7,41 @@
     <string name="wind">Ветер: 6 м/с</string>
     <string name="uvi">УФ индекс: 1</string>
     <string name="ozone">Озоновый слой: 1</string>
+    <string name="error">"Блин, ниче не работает, сорянте :("></string>
+
+    <string name="bad_v1">"Ебать чернобыль, ты чего там забыл? Я бы на твоем месте просто из дома не выходил в этот сектор газа. Третья рука еще не выросла?"</string>
+    <string name="bad_v2">"Короче без лишних слов, с тобой тут поговорить хотят: https://www.youtube.com/watch?v=H2xwlnosyog"</string>
+    <string name="bad_v3">"Я бы на твоем месте курить начал прямо ейчас, потому что по сравнению с тем, чем ты дышишь, сигаретный дым намного чище"</string>
+    <string name="bad_v4">"Все нормально, все хорошо, сейчас будем задыхаться, братишка"</string>
+
+    <string-array name="bad">
+        <item>@string/bad_v1</item>
+        <item>@string/bad_v2</item>
+        <item>@string/bad_v3</item>
+        <item>@string/bad_v4</item>
+    </string-array>
+
+    <string name="middle_v1">"Дышать, конечно, можно, но душновато. Так же душновато, как и твоя манера говорить"</string>
+    <string name="middle_v2">"Че грязноватый воздух? Так хуячь в деревню, хозяйство поднимай! Развелось програмистов в стране, поля стоят не паханые"</string>
+    <string name="middle_v3">"Дышать можно, но очень осторожно."</string>
+    <string name="middle_v4">"Мда, вот у меня когда дед жил, такого не было. Воздухом тогда раны лечили, на улицу вышел сразу третье легкое вырастало"</string>
+
+    <string-array name="middle">
+        <item>@string/middle_v1</item>
+        <item>@string/middle_v2</item>
+        <item>@string/middle_v3</item>
+        <item>@string/middle_v4</item>
+    </string-array>
+
+    <string name="good_v1">"Ля, чи шо альпийская деревня? Откуда такой чистый воздух, небось заграница какая"</string>
+    <string name="good_v2">"Кислорода столько, что если зажешь спичку, то все вокруг просто рванет, так что бросай курить и свою токсичную бабу"</string>
+    <string name="good_v3">"Есть кислородное голодание, а у тебя сейчас кислородное обжирание"</string>
+    <string name="good_v4">"Никому не рассказывай где-ты, а то понаедут со своих Красноярсков"</string>
+
+    <string-array name="good">
+        <item>@string/good_v1</item>
+        <item>@string/good_v2</item>
+        <item>@string/good_v3</item>
+        <item>@string/good_v4</item>
+    </string-array>
 </resources>
